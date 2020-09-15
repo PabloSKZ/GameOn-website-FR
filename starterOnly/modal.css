@@ -31,7 +31,7 @@ img {
 }
 
 #alert {
-  width: 100%;
+  width: 100vw;
   height: 4rem;
   background: #9fceb3;
   color: #1f8047;
@@ -39,6 +39,8 @@ img {
   text-align: center;
   padding: 1rem;
   position: fixed;
+  top: 0;
+  left: 0;
 }
 
 .hide {
