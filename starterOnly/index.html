@@ -13,8 +13,10 @@
   </head>
   <body>
     <div class="topnav" id="myTopnav">
-      <div id="alert" class="hide">
-        Merci ! Votre réservation a été reçue.
+      <div class="alert-container">
+        <div id="alert" class="hide">
+          Merci ! Votre réservation a été reçue.
+        </div>
       </div>
       <div class="header-logo">
       <img alt="logo" src="Logo.png" width="auto" height="auto" />
@@ -73,10 +75,8 @@
                   type="text"
                   id="first"
                   name="first"
-                  minlength="2"
-                  required
                 /><br>
-                <span></span>
+                <span id="firstError"></span>
               </div>
               <div
                 class="formData">
@@ -86,10 +86,8 @@
                   type="text"
                   id="last"
                   name="last"
-                  minlength="2"
-                  required
                 /><br>
-                <span></span>
+                <span id="lastError"></span>
               </div>
               <div
                 class="formData">
@@ -99,9 +97,8 @@
                   type="email"
                   id="email"
                   name="email"
-                  required
                 /><br>
-                <span></span>
+                <span id="emailError"></span>
               </div>
               <div
                 class="formData">
@@ -111,14 +108,14 @@
                   type="date"
                   id="birthdate"
                   name="birthdate"
-                  required
                 /><br>
-                <span></span>
+                <span id="birthdateError"></span>
               </div>
               <div
                 class="formData">
                 <label for="quantity">À combien de tournois GameOn avez-vous déjà participé ?</label><br>
-                <input type="number" class="text-control" id="quantity" name="quantity" min="0" max="99" required>
+                <input type="number" class="text-control" id="quantity" name="quantity" min="0" max="99">
+                <br> <span id="quantityError"></span>
               </div>
               <p class="text-label">Quelles villes ?</p>
               <div

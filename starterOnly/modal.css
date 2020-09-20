@@ -42,10 +42,11 @@ img {
   top: 0;
   left: 0;
   z-index: 10;
+  display: none;
 }
 
 .hide {
-  animation: hide 2s ease-in-out forwards;
+  animation: hide 2s 2s ease-in-out forwards;
 }
 
 @keyframes hide {
@@ -58,11 +59,15 @@ img {
   }
 }
 
+#firstError,
+#lastError,
+#emailError,
+#birthdateError,
+#quantityError,
 #locationError,
 #conditionsError {
   color: red;
-  font-size: 1rem;
-  text-align: initial !important;
+  font-size: 0.8rem;
 }
 
 .topnav {

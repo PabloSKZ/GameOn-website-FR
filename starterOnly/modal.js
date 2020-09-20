@@ -16,16 +16,32 @@ function closeModal() {
 }
 
 function validate(e) {
-  /*   if (firstName.value.length < 1) {
-    firstName.nextElementSibling.nextElementSibling.innerHTML = "gnagnagna";
-    e.preventDefault();
-  }
+  e.preventDefault();
+  firstError.innerHTML = "";
+  lastError.innerHTML = "";
+  emailError.innerHTML = "";
+  birthdateError.innerHTML = "";
+  quantityError.innerHTML = "";
+  locationError.innerHTML = "";
+  conditionsError.innerHTML = "";
 
-  if (lastName.value.length < 1) {
-    lastName.nextElementSibling.nextElementSibling.innerHTML = "gnagnagna";
-    e.preventDefault();
-  } */
-  if (
+  if (firstName.value.length < 1) {
+    firstError.innerHTML =
+      "Veuillez entrer 2 caractères ou plus pour le champ du nom.";
+  } else if (lastName.value.length < 1) {
+    lastError.innerHTML =
+      "Veuillez entrer 2 caractères ou plus pour le champ du nom.";
+  } else if (
+    !email.value.match(
+      /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+    )
+  ) {
+    emailError.innerHTML = "Veuillez entrer une adresse email valide.";
+  } else if (birthdate.value == "") {
+    birthdateError.innerHTML = "Veuillez entrer votre date de naissance.";
+  } else if (quantity.value == "") {
+    quantityError.innerHTML = "Veuillez un nombre.";
+  } else if (
     !location1.checked &&
     !location2.checked &&
     !location3.checked &&
@@ -34,16 +50,13 @@ function validate(e) {
     !location6.checked
   ) {
     locationError.innerHTML = "Veuillez cocher un lieu";
-    e.preventDefault();
-  }
-
-  if (!checkbox1.checked) {
+  } else if (!checkbox1.checked) {
     conditionsError.innerHTML = "Veuillez accepter les conditions";
-    e.preventDefault();
+  } else {
+    closeModal();
+    alertDiv.style.display = "block";
   }
 }
-
-const queryString = window.location.search;
 
 // DOM Elements
 const modalbg = document.querySelector(".bground");
@@ -66,15 +79,16 @@ const location5 = document.getElementById("location5");
 const location6 = document.getElementById("location6");
 const checkbox1 = document.getElementById("checkbox1");
 const checkbox2 = document.getElementById("checkbox2");
+
+// Input error
+const firstError = document.getElementById("firstError");
+const lastError = document.getElementById("lastError");
+const emailError = document.getElementById("emailError");
+const birthdateError = document.getElementById("birthdateError");
+const quantityError = document.getElementById("quantityError");
 const locationError = document.getElementById("locationError");
 const conditionsError = document.getElementById("conditionsError");
+
 // Events
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 modalClose.forEach((btn) => btn.addEventListener("click", closeModal));
-
-if (queryString != "") {
-  alertDiv.classList.remove("hide");
-  setTimeout(() => {
-    alertDiv.classList.add("hide");
-  }, 2000);
-}
