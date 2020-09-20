@@ -46,7 +46,7 @@ img {
 }
 
 .hide {
-  animation: hide 2s 2s ease-in-out forwards;
+  animation: hide 2s ease-in-out forwards;
 }
 
 @keyframes hide {

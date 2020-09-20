@@ -25,10 +25,10 @@ function validate(e) {
   locationError.innerHTML = "";
   conditionsError.innerHTML = "";
 
-  if (firstName.value.length < 1) {
+  if (firstName.value.length < 2) {
     firstError.innerHTML =
       "Veuillez entrer 2 caractères ou plus pour le champ du nom.";
-  } else if (lastName.value.length < 1) {
+  } else if (lastName.value.length < 2) {
     lastError.innerHTML =
       "Veuillez entrer 2 caractères ou plus pour le champ du nom.";
   } else if (
@@ -54,7 +54,15 @@ function validate(e) {
     conditionsError.innerHTML = "Veuillez accepter les conditions";
   } else {
     closeModal();
+    console.log(alertDiv);
     alertDiv.style.display = "block";
+    setTimeout(() => {
+      alertDiv.classList.add("hide");
+    }, 2000);
+    setTimeout(() => {
+      alertDiv.style.display = "none";
+      alertDiv.classList.remove("hide");
+    }, 5000);
   }
 }
 
