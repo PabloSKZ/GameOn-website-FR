@@ -1,3 +1,4 @@
+// Add Responsive class
 function editNav() {
   var x = document.getElementById("myTopnav");
   if (x.className === "topnav") {
@@ -7,6 +8,7 @@ function editNav() {
   }
 }
 
+// Toggle Modal
 function launchModal() {
   modalbg.style.display = "block";
 }
@@ -15,8 +17,11 @@ function closeModal() {
   modalbg.style.display = "none";
 }
 
+// Form Validation
 function validate(e) {
   e.preventDefault();
+
+  // Error field init
   firstError.innerHTML = "";
   lastError.innerHTML = "";
   emailError.innerHTML = "";
@@ -25,6 +30,7 @@ function validate(e) {
   locationError.innerHTML = "";
   conditionsError.innerHTML = "";
 
+  // Verification
   if (firstName.value.length < 2) {
     firstError.innerHTML =
       "Veuillez entrer 2 caractères ou plus pour le champ du nom.";
@@ -53,8 +59,8 @@ function validate(e) {
   } else if (!checkbox1.checked) {
     conditionsError.innerHTML = "Veuillez accepter les conditions";
   } else {
+    // Close Modal and Toggle Validation Alert for 2s
     closeModal();
-    console.log(alertDiv);
     alertDiv.style.display = "block";
     setTimeout(() => {
       alertDiv.classList.add("hide");
@@ -73,7 +79,7 @@ const formData = document.querySelectorAll(".formData");
 const modalClose = document.querySelectorAll(".close");
 const alertDiv = document.getElementById("alert");
 
-// ... - Form
+// DOM Elements - Form
 const firstName = document.getElementById("first");
 const lastName = document.getElementById("last");
 const email = document.getElementById("email");
@@ -88,7 +94,7 @@ const location6 = document.getElementById("location6");
 const checkbox1 = document.getElementById("checkbox1");
 const checkbox2 = document.getElementById("checkbox2");
 
-// Input error
+// DOM Elements - Input error
 const firstError = document.getElementById("firstError");
 const lastError = document.getElementById("lastError");
 const emailError = document.getElementById("emailError");
@@ -97,6 +103,6 @@ const quantityError = document.getElementById("quantityError");
 const locationError = document.getElementById("locationError");
 const conditionsError = document.getElementById("conditionsError");
 
-// Events
+// Modal Events
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 modalClose.forEach((btn) => btn.addEventListener("click", closeModal));

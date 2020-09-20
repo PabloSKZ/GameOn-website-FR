@@ -30,6 +30,7 @@ img {
   padding-right: 1rem;
 }
 
+/* Validation form alert */
 #alert {
   width: 100vw;
   height: 4rem;
@@ -45,6 +46,7 @@ img {
   display: none;
 }
 
+/* Hide alert animation */
 .hide {
   animation: hide 2s ease-in-out forwards;
 }
@@ -59,6 +61,7 @@ img {
   }
 }
 
+/* Form errors */
 #firstError,
 #lastError,
 #emailError,
